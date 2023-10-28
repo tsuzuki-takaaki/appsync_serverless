@@ -23,6 +23,10 @@ appSync:
       dataSource: hogeMaruSource
       request: "./mapping-templates/list_hoge_marus/request.vtl"
       response: "./mapping-templates/list_hoge_marus/response.vtl"
+    Query.listHogeMarusJs:
+      kind: UNIT
+      dataSource: hogeMaruSource
+      code: "./resolvers/Query.listHogeMarusJs.js"
     Mutation.putHogeMaru:
       kind: UNIT
       dataSource: hogeMaruSource
