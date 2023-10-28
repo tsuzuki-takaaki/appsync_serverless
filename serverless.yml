@@ -1,6 +1,24 @@
 service: appsync-serverless
 frameworkVersion: "3"
+plugins:
+  - serverless-better-credentials
 
 provider:
   name: aws
+
+resources:
+  Resources:
+    Table:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: hogeMaru
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id # partition key
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
 

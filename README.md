@@ -18,6 +18,16 @@ SDK: 4.4.0
   - `% npm install --save-dev serverless-appsync-plugin`
   - after this, you must add this plugin to `serverless.yml`
 
+## Command
+- when you deploy to aws
+```sh
+% serverless deploy --verbose --aws-profile your_profile_name
+```
+- when you remove
+```sh
+% serverless remove --verbose --aws-profile your_profile_name
+```
+
 ## Refs
 - [Serverless GraphQL with AWS AppSync and DynamoDB](https://vdelacou.medium.com/serverless-graphql-with-aws-appsync-and-dynamodb-3dcbe29f026e)
 - [Effective AppSync 〜 Serverless Framework を使用した AppSync の実践的な開発方法とテスト戦略 〜](https://qiita.com/G-awa/items/095faa9a94da09bc3ed5)
