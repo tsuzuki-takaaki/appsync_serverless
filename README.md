@@ -17,6 +17,8 @@ SDK: 4.4.0
 - [Serverless Appsync Plugin](https://github.com/sid88in/serverless-appsync-plugin)
   - `% npm install --save-dev serverless-appsync-plugin`
   - after this, you must add this plugin to `serverless.yml`
+  - In this repository, you use **V2**
+    - The difference between V1 and V2 is critical
 
 ## Command
 - when you deploy to aws
