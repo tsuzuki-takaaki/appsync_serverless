@@ -1,11 +1,33 @@
 service: appsync-serverless
 frameworkVersion: "3"
 plugins:
+  - serverless-appsync-plugin
   - serverless-better-credentials
 
 provider:
   name: aws
 
+appSync:
+  name: hogeMaruApi
+  schema: "schema.graphql"
+  authentication:
+    type: API_KEY
+  dataSources:
+    hogeMaruSource: # this is for mappingTemplates' dataSource
+      type: AMAZON_DYNAMODB
+      config:
+        tableName: hogeMaru
+  resolvers:
+    Query.listHogeMarus:
+      kind: UNIT
+      dataSource: hogeMaruSource
+      request: "./mapping-templates/list_hoge_marus/request.vtl"
+      response: "./mapping-templates/list_hoge_marus/response.vtl"
+    Mutation.putHogeMaru:
+      kind: UNIT
+      dataSource: hogeMaruSource
+      request: "./mapping-templates/put_hoge_maru/request.vtl"
+      response: "./mapping-templates/put_hoge_maru/response.vtl"
 resources:
   Resources:
     Table:
